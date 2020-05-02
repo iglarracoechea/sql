@@ -1,0 +1,5 @@
+
+
+select  *
+from fifa.equipo
+;
