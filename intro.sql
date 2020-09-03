@@ -131,3 +131,7 @@ SELECT SECCIÓN, MAX(PRECIO) AS maximo_precio FROM productos GROUP BY SECCIÓN h
 
 --incorrecto, porque tiene un tercer campo. muestra el primer articulo de la sección(mal)
 SELECT SECCIÓN, NOMBREARTÍCULO, MAX(PRECIO) AS maximo_precio FROM productos WHERE SECCIÓN = 'Confección' GROUP BY SECCIÓN
+
+/*
+WHERE opera sobre registros individuales, mientras que HAVING lo hace sobre un grupo de registros(group by).
+*/
