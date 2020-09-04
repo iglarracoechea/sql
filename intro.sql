@@ -135,3 +135,28 @@ SELECT SECCIÓN, NOMBREARTÍCULO, MAX(PRECIO) AS maximo_precio FROM productos WH
 /*
 WHERE opera sobre registros individuales, mientras que HAVING lo hace sobre un grupo de registros(group by).
 */
+
+/*Consultas de calculo: se realizan sobre registros individuales
+
+funciones frecuentes: no es 100% necesario
+now(): devuelve el dia y la hora actuales en el momento de hacer la consulta
+datediff() diferencia entre dos fechas
+date_format() para formatear fechas; para quitar decimales
+concat() concatenar string
+round() para redondear
+truncate()
+*/
+
+-- precio + iva
+SELECT NOMBREARTÍCULO, SECCIÓN, PRECIO, round(PRECIO*1.21,2) as Precio_Iva FROM productos 
+WHERE SECCIÓN <> 'deportes' AND SECCIÓN <> 'confección'
+
+--precio con descuento
+SELECT NOMBREARTÍCULO, SECCIÓN, PRECIO, PRECIO-3 as Precio_Descuento FROM productos 
+WHERE SECCIÓN <> 'deportes' AND SECCIÓN <> 'confección'
+
+--now(), datediff() date_format('%D-%M')
+
+SELECT NOMBREARTÍCULO, SECCIÓN, PRECIO, FECHA, date_format(now(),'%D-%M-%Y') AS dia_hoy, datediff(now(),FECHA) as diferencia_dias 
+FROM productos 
+WHERE SECCIÓN = 'deportes'
