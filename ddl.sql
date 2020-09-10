@@ -51,6 +51,7 @@ alter table clientes drop column fecha_baja
 
 ALTER TABLE prueba ALTER COLUMN Lugar_nacimiento SET DEFAULT 'desconocido' -- cambia de null a desconocido
 ALTER TABLE prueba ALTER COLUMN Lugar_nacimiento DROP DEFAULT 
+alter TABLE prueba MODIFY column apellido varchar(20)
 
 
 --modificar propiedad de un campo access
@@ -58,3 +59,8 @@ ALTER TABLE prueba ALTER COLUMN Lugar_nacimiento DROP DEFAULT
 alter table clientes alter column fecha_baja DATE
 
 
+UPDATE clientes SET POBLACIÓN ='Buenos Aires' where CÓDIGOCLIENTE = 'CT01'
+delete from calificaciones
+where idalumno=3;
+
+alter table add PRIMARY KEY (campo)
