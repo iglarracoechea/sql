@@ -78,3 +78,19 @@ CREATE TABLE Persons (
     FirstName varchar(255),
     Age int
 );
+
+/*create table Productos_Pedidos( Número_pedido integer not null, 
+codigoarticulo integer not null, 
+Unidades integer,
+primary key(Número_pedido, codigoarticulo),
+
+constraint FK_Detalle_pedidos
+foreign key(Número_pedido) references pedidos(Número_pedido)
+ON UPDATE CASCADE
+ON DELETE CASCADE,
+foreign key(codigoarticulo) references productos(codigoarticulo)
+	ON UPDATE CASCADE
+	ON DELETE CASCADE
+);
+
+*/
