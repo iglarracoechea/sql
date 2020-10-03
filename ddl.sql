@@ -60,15 +60,6 @@ alter table clientes alter column fecha_baja DATE
 
 
 UPDATE clientes SET POBLACIÓN ='Buenos Aires' where CÓDIGOCLIENTE = 'CT01'
-delete from calificaciones
-where idalumno=3;
-
-alter table add PRIMARY KEY (campo)
-                                
-alter table clientes alter column fecha_baja DATE
-
-
-UPDATE clientes SET POBLACIÓN ='Buenos Aires' where CÓDIGOCLIENTE = 'CT01'
 
 delete from calificaciones
 where idalumno=3;
@@ -77,3 +68,13 @@ alter table add PRIMARY KEY (campo)
 
 INSERT INTO `prueba` (`idprueba`, `nombre`, `apellido`, `fecha`, `edad`, `contado`) 
 VALUES ('1', 'ignacio', 'larracoechea', '09/04/1995', '25', '1');
+
+-- YYYY-MM-DD formato en sql server
+-- sql server
+
+CREATE TABLE Persons (
+    Personid int IDENTITY(1,1) PRIMARY KEY,
+    LastName varchar(255) NOT NULL,
+    FirstName varchar(255),
+    Age int
+);
