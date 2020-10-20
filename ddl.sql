@@ -34,7 +34,7 @@ create table prueba(nombre text(20))
 
 create table prueba(nombre text(20), apellido text(20), edad BYTE, fecha_nacimiento DATE, CARNET BIT)
 
-create table prueba(idalumno counter nombre text(20), apellido text(20), edad BYTE, fecha_nacimiento DATE, CARNET BIT)
+create table prueba(idalumno counter, nombre text(20), apellido text(20), edad BYTE, fecha_nacimiento DATE, CARNET BIT)
 
 --modificar/agregar tablas en mysql
 
@@ -49,7 +49,7 @@ alter table clientes drop column fecha_baja
 
 --modificar propiedad de un campo mysql
 
-ALTER TABLE prueba ALTER COLUMN Lugar_nacimiento SET DEFAULT 'desconocido' -- cambia de null a desconocido
+ALTER TABLE prueba ALTER COLUMN Lugar_nacimiento SET DEFAULT 'desconocido' -- cambia de null a desconocido. sql server
 ALTER TABLE prueba ALTER COLUMN Lugar_nacimiento DROP DEFAULT 
 alter TABLE prueba MODIFY column apellido varchar(20)
 
@@ -79,6 +79,7 @@ CREATE TABLE Persons (
     Age int
 );
 
+
 /*create table Productos_Pedidos( Número_pedido integer not null, 
 codigoarticulo integer not null, 
 Unidades integer,
@@ -87,10 +88,45 @@ primary key(Número_pedido, codigoarticulo),
 constraint FK_Detalle_pedidos
 foreign key(Número_pedido) references pedidos(Número_pedido)
 ON UPDATE CASCADE
-ON DELETE CASCADE,
+ON DELETE CASCADE,	
+
 foreign key(codigoarticulo) references productos(codigoarticulo)
 	ON UPDATE CASCADE
 	ON DELETE CASCADE
 );
+
+
+ALTER TABLE PEDIDOS
+ADD CONSTRAINT FK_DETALLES_PEDIDOS
+FOREIGN KEY(NUMERO_PEDIDO) REFERENCES PEDIDOS(NUMERO_PEDIDOS)
+ON UPDATE CASCADE
+ON DELETE CASCADE,
+FOREING KEY(CODIGOARTICULO) REFERENCES PRODUCTOS(CODIGOARTICULO)
+	ON UPDATE CASCADE 
+	ON DELETE CASCADE
+*/
+
+/* para cargar imagenes:
+
+CREATE TABLE Nota ( Id int IDENTITY (1, 1) NOT NULL, Titulo varchar(50) NOT NULL, Imagen varbinary(MAX) NOT NULL) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+
+
+
+db gestion pedidos sql server
+
+alter table pedidos add constraint fk_pedidos foreign key (codigo_cliente) references clientes(codigo_cliente) on update cascade on delete cascade
+alter table productos_pedidos add constraint fk_productos_pedidos_2 foreign key(codigo_articulo) references productos (codigo_articulo) on update cascade on delete cascade
+
+create table productos_pedidos(numero_pedido int primary key, codigo_articulo int
+constraint fk_detalles_pedidos
+foreign key(numero_pedido) references pedidos(numero_pedido)
+on update cascade
+on delete cascade
+);
+
+/*
+insert into clientes(codigo_cliente, empresa, direccion, poblacion,telefono,responsable)
+values('CT01','Beltrán e Hijos','Las Fuentes 78', 'Madrid','914-45-64-35','Angel Martinez')
 
 */
