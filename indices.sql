@@ -78,5 +78,11 @@ Los índices no agrupados son almacenados en un lugar separado de la tabla real.
 Los índices agrupados son más rápidos que los índices no agrupados, ya que no involucran ningún paso extra de búsqueda.
 
 
-
+-- Este índice agrupado almacena el registro en la tabla “student” en orden ascendente de “id”. 
+--Por lo tanto, si el registro insertado tiene el id de 5, el registro será insertado en la 5ª fila de la tabla en 
+--lugar de la primera fila. 
+--De forma similar, si el cuarto registro tiene un id de 3, será insertado en la tercera fila en lugar de la cuarta fila.
+								 
+								 
 */
+						
